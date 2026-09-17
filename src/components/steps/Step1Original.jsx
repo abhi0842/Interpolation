@@ -36,10 +36,7 @@ export default function Step1Original() {
         <div className={styles.stepNum}>1</div>
         <div>
           <div className={styles.stepTitle}>Original signal — discrete samples x[n]</div>
-          <div className={styles.stepDesc}>
-            Interpolation starts from a slow sequence. Build a single tone, look at the
-            stems, and listen at rate f<sub>s</sub>. Hover a stem to read x[n].
-          </div>
+          
         </div>
       </div>
 
@@ -47,7 +44,7 @@ export default function Step1Original() {
         <div>
           <Panel title="Original rate &amp; signal">
             <Slider
-              id="in-fs"
+               id="in-fs"
               label="f<sub>s</sub>"
               value={fs}
               min={200}
@@ -75,7 +72,6 @@ export default function Step1Original() {
               step={1}
               onChange={setNShow}
               formatter={(v) => v}
-              subLabel="Keep this small so you can count every sample — the lecture used 12."
             />
             <div className={styles.readoutGrid}>
               <Readout label="Nyquist fs/2" value={fmtHz(nyq)} color="blue" />
@@ -134,42 +130,7 @@ export default function Step1Original() {
         )}
       </div>
 
-      {signalGenerated && (
-        <div className={styles.tryThis}>
-          <div className={styles.tryKicker}>Check your understanding</div>
-          <p>
-            If you play these samples faster by only inserting zeros (no filter), will
-            you hear a clean sine, or extra buzz?
-          </p>
-          <div className={styles.quizRow}>
-            <button
-              className={`${styles.quizBtn} ${quizAnswer === "clean" ? styles.quizWrong : ""}`}
-              onClick={() => setQuizAnswer("clean")}
-            >
-              Clean sine — zeros do nothing
-            </button>
-            <button
-              className={`${styles.quizBtn} ${quizAnswer === "buzz" ? styles.quizRight : ""}`}
-              onClick={() => setQuizAnswer("buzz")}
-            >
-              Buzz — images appear in the spectrum
-            </button>
-          </div>
-          {quizAnswer === "buzz" && (
-            <Callout type="safe" title="Correct">
-              Zero-stuffing stretches the sequence and <b>squeezes</b> the spectrum.
-              Copies (images) appear between the old Nyquist and the new one. Step 2
-              shows this, then Step 3 designs the LPF that removes them.
-            </Callout>
-          )}
-          {quizAnswer === "clean" && (
-            <Callout type="info" title="Not quite">
-              Inserted zeros are real samples at the new rate. A DAC holds them, which
-              sounds buzzy. You still need a low-pass filter with cutoff π/L and gain L.
-            </Callout>
-          )}
-        </div>
-      )}
+      
     </div>
   );
 }

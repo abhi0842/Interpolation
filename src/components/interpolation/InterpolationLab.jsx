@@ -78,7 +78,7 @@ export default function InterpolationLab() {
         ))}
       </div>
 
-      <section className={styles.learningRail} aria-label="Interpolation mental model">
+      {/* <section className={styles.learningRail} aria-label="Interpolation mental model">
         <div className={styles.learningIntro}>
           <span className={styles.learningKicker}>Mental model</span>
           <strong>Go faster in three moves</strong>
@@ -99,7 +99,7 @@ export default function InterpolationLab() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {activeStep === 0 && <Step1Original />}
       {activeStep === 1 && <Step2Zeros />}
@@ -124,13 +124,7 @@ export default function InterpolationLab() {
           </button>
         </div>
       </div>
-
       <GuidedModal />
-
-      <footer className={styles.footer}>
-        Virtual Lab · Multirate DSP · Correct chain:
-        <b> upsample (insert zeros) → LPF with cutoff π/L and gain L</b>
-      </footer>
     </div>
   );
 }

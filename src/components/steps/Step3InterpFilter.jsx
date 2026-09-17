@@ -34,10 +34,7 @@ export default function Step3InterpFilter() {
         <div className={styles.stepNum}>3</div>
         <div>
           <div className={styles.stepTitle}>Design the LPF — cutoff π/L, gain L</div>
-          <div className={styles.stepDesc}>
-            A real Hamming-windowed sinc is designed and convolved in the next step.
-            Drag the cutoff away from π/L to see images leak or the tone get muffled.
-          </div>
+          
         </div>
       </div>
 
@@ -54,7 +51,7 @@ export default function Step3InterpFilter() {
         <div className={styles.pipeArrow}>→</div>
         <div className={`${styles.pipeBlock} ${styles.active}`}>
           <div className={styles.pipeLabel}>LPF</div>
-          π/L · gain L
+          π/L · gain L= {L}
         </div>
         <div className={styles.pipeArrow}>→</div>
         <div className={`${styles.pipeBlock} ${styles.active}`}>
@@ -63,28 +60,8 @@ export default function Step3InterpFilter() {
         </div>
       </div>
 
-      <Panel>
-        <Slider
-          id="in-L4"
-          label="L (live)"
-          value={L}
-          min={2}
-          max={6}
-          step={1}
-          onChange={setL}
-          formatter={(v) => String(v)}
-        />
-        <div className={styles.readoutGrid}>
-          <Readout label="L" value={String(L)} color="blue" />
-          <Readout label="New rate" value={fmtHz(fsNew)} color="green" />
-          <Readout label="Cutoff π/L" value={fmtHz(correctCutoff)} color="amber" />
-          <Readout label="Filter gain" value={"×" + L} color="amber" />
-        </div>
-      </Panel>
 
-      <Formula title="Lecture recipe (mirror of decimation)">
-        {`Keep every original sample, insert <b>L−1 zeros</b>, then low-pass with cutoff <b>π/L</b> (that is f<sub>s</sub>/2 at the new rate) and passband gain <b>L</b> so the tone amplitude comes back. Decimation filters <i>first</i>; interpolation filters <i>after</i> ↑L.`}
-      </Formula>
+    
 
       <Panel title="Design the actual FIR filter">
         <div className={styles.grid2}>
@@ -116,9 +93,10 @@ export default function Step3InterpFilter() {
               step={2}
               onChange={setTaps}
               formatter={(v) => v + " taps"}
-              subLabel="Odd length keeps linear phase. More taps → sharper cutoff, closer to a brick wall."
+              subLabel=""
             />
             <div className={styles.readoutGrid}>
+               <Readout label="New rate" value={fmtHz(fsNew)} color="green" />
               <Readout label="Your cutoff" value={fmtHz(cutoffHz)} color="blue" />
               <Readout label="Correct cutoff" value={fmtHz(correctCutoff)} color="amber" />
             </div>

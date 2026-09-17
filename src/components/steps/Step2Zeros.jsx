@@ -57,10 +57,7 @@ export default function Step2Zeros() {
         <div className={styles.stepNum}>2</div>
         <div>
           <div className={styles.stepTitle}>Zero-stuffed — then images in frequency</div>
-          <div className={styles.stepDesc}>
-            Choose L, then insert L−1 zeros after every original sample. Time gets
-            longer; the spectrum is squeezed and L−1 image copies appear.
-          </div>
+         
         </div>
       </div>
 
@@ -90,7 +87,7 @@ export default function Step2Zeros() {
               ? `inserting… ${Math.round(stuffProgress * 100)}%`
               : zerosInserted
                 ? `${z.length} samples @ ${fmtHz(fsNew)}`
-                : "Press to watch zeros appear between the blue samples"}
+                : ""}
           </span>
         </div>
       </Panel>
@@ -122,10 +119,7 @@ export default function Step2Zeros() {
         </Panel>
         <Panel title="The stretched sample sequence">
           <SampleStrip samples={zerosInserted || animOn ? z : x} mode={zerosInserted || animOn ? "zeros" : "orig"} L={L} />
-          <p className={styles.audioNote}>
-            Play at the new rate f<sub>s</sub>·L. The DAC holds each zero, so you hear
-            a buzzy version of the tone — those are the spectral images.
-          </p>
+          <br></br>
           <div className={styles.audioRow}>
             <button
               className={`${styles.playBtn} ${playingId === "zeros" ? styles.playing : ""}`}
@@ -140,14 +134,11 @@ export default function Step2Zeros() {
 
       {(zerosInserted || animOn) && (
         <>
-          <div className={styles.stepHead} style={{ marginTop: 20 }}>
+          <div className={styles.stepHead} style={{ marginTop: 10 }}>
             <div className={styles.stepNum}>2b</div>
             <div>
               <div className={styles.stepTitle}>In frequency: spectrum is squeezed — images appear</div>
-              <div className={styles.stepDesc}>
-                Same L. Hover the purple peaks — they are copies of the tone, not new
-                information. The interpolation filter must keep only the blue baseband.
-              </div>
+             
             </div>
           </div>
           <div className={styles.sideBySide}>
