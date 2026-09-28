@@ -102,14 +102,7 @@ export default function Step1Original() {
                 label={`${nShow} samples @ ${fs} Hz`}
                 height={170}
               />
-              <div className={styles.audioRow}>
-                <button
-                  className={`${styles.playBtn} ${playingId === "orig" ? styles.playing : ""}`}
-                  onClick={() => playStage("orig")}
-                >
-                  ▶ Play original (rate f<sub>s</sub>)
-                </button>
-              </div>
+             
             </Panel>
             <Panel title="Spectrum of original (0 → fs/2)">
               <InterpSpectrum

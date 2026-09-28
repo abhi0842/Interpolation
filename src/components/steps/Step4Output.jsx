@@ -48,12 +48,7 @@ export default function Step4Output() {
         <Panel title="(b) Zero-stuffed">
           
           <StemPlot samples={z} markZeros L={L} label="" height={130} />
-         <br></br><button
-            className={`${styles.playBtn} ${playingId === "zeros" ? styles.playing : ""}`}
-            onClick={() => playStage("zeros")}
-          >
-            ▶ Zero-stuffed (before filter)
-          </button>
+         <br></br>
         </Panel>
         <Panel title="(c) Actually filtered">
   <StemPlot samples={y} filtered smoothGuide label="" height={130} />
@@ -61,23 +56,7 @@ export default function Step4Output() {
   <br />
 
   <div className={styles.buttonRow}>
-    <button
-      className={`${styles.playBtn} ${
-        playingId === "yours" ? styles.playing : ""
-      }`}
-      onClick={() => playStage("yours")}
-    >
-      ▶  Your cutoff
-    </button>
-
-    <button
-      className={`${styles.playBtn} ${styles.goodBtn} ${
-        playingId === "correct" ? styles.playing : ""
-      }`}
-      onClick={() => playStage("correct")}
-    >
-      ▶ Expected
-    </button>
+    
   </div>
 </Panel>
 

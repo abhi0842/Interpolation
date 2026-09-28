@@ -121,13 +121,7 @@ export default function Step2Zeros() {
           <SampleStrip samples={zerosInserted || animOn ? z : x} mode={zerosInserted || animOn ? "zeros" : "orig"} L={L} />
           <br></br>
           <div className={styles.audioRow}>
-            <button
-              className={`${styles.playBtn} ${playingId === "zeros" ? styles.playing : ""}`}
-              onClick={() => playStage("zeros")}
-              disabled={!zerosInserted && !animOn}
-            >
-              ▶ Play zero-stuffed (rate f<sub>s</sub>·L, buzzy)
-            </button>
+           
           </div>
         </Panel>
       </div>

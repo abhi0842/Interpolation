@@ -120,7 +120,7 @@ export default function InterpolationLab() {
             disabled={activeStep === steps.length - 1 || !canAdvance}
             title={!canAdvance ? "Complete the current step first" : undefined}
           >
-            {activeStep === steps.length - 1 ? "Done ✓" : "Next →"}
+            {activeStep === steps.length - 1 ? "Done " : "Next →"}
           </button>
         </div>
       </div>
