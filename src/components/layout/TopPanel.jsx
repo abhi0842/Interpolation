@@ -28,7 +28,7 @@ const TopPanel = () => {
           >
             Instruction
           </button>
-          <button
+          {/* <button
             id="guideButton"
             className={styles.panelButton}
             onClick={() => {
@@ -37,7 +37,7 @@ const TopPanel = () => {
             }}
           >
             Guided Tutor
-          </button>
+          </button> */}
         </div>
       </div>
       {showInstruction && (
